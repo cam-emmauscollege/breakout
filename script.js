@@ -5,6 +5,7 @@ class Bal {
       this.speedX = speedX;
       this.speedY = speedY;
       this.diameter = 80;
+      this.fill = (20,20,20);
    }
 }
 
