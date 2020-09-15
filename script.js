@@ -1,7 +1,16 @@
-var balX = 50;
-var balY = 50;
-var speedX = 6;
-var speedY = 3;
+class Bal {
+   constructor(x, y, speedX, speedY) {
+      this.x = x;
+      this.y = y;
+      this.speedX = speedX;
+      this.speedY = speedY;
+      this.diameter = 80;
+      this.fill = (255,0,0);
+   }
+}
+
+
+var bal = new Bal(50, 50, 3, 6);
 
 /**
  * setup
@@ -27,17 +36,18 @@ function draw() {
   // stel vulkleur in
   fill(255, 100, 255);
 
-  // teken een cirkel
-  ellipse(balX,balY,80,80);
+   // teken een cirkel
+   ellipse(bal.x, bal.y, bal.diameter, bal.diameter);
 
-  balX = balX + speedX;
-  balY = balY + speedY;
+   // update positie
+   bal.x = bal.x + bal.speedX;
+   bal.y = bal.y + bal.speedY;
 
-  if (balX >= 1280 ) {
-    speedX = speedX * -1
-  }
+   if (bal.x <= 0 || bal.x >= 1280 ) {
+      bal.speedX = bal.speedX * -1
+   }
 
-  if (balY >= 720) {
-     speedY = speedY * -1;
-  }
+   if (bal.y <= 0 || bal.y >= 720) {
+      bal.speedY = bal.speedY * -1;
+   }
 }
