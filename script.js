@@ -1,14 +1,21 @@
 class Bal {
-   constructor(x, y, speedX, speedY) {
-      this.x = x;
-      this.y = y;
-      this.speedX = speedX;
-      this.speedY = speedY;
+   constructor(myX, myY, mySpeedX, mySpeedY, mySuper) {
+      this.x = myX;
+      this.y = myY;
+      this.speedX = mySpeedX;
+      this.speedY = mySpeedY;
       this.diameter = 80;
+      this.isSuper = mySuper;
    }
 
    show() {
-      fill(255, 100, 255);
+      if (this.isSuper === true) {
+         fill(255, 0, 0);
+      }
+      else {
+         fill(255, 100, 255);
+      }
+      
       ellipse(this.x, this.y, this.diameter, this.diameter);
    }
 
@@ -26,10 +33,8 @@ class Bal {
    }
 }
 
-
-
-
-var ballen = [/* maak hier je ballen */];
+var ballen = [new Bal(50, 100, 6, 3, false),
+              new Bal(300, 150, 30, 60, true)];
 
 /**
  * setup
